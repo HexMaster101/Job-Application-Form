@@ -42,6 +42,20 @@ app.post("/add-user", (req, res) => {
 	});
 });
 
+app.post("/search-user", (req, res) => {
+	const { jobType } = req.body;
+
+	const sql = "SELECT * FROM users WHERE job_type = ?";
+	db.query(sql, [jobType], (err, results) => {
+		if (err) {
+			console.error("Error retrieving data: ", err);
+			res.status(500).send("Server error");
+		} else {
+			res.json(results);
+		}
+	});
+});
+
 // Start the server
 app.listen(3301, () => {
 	console.log("Server running on http://localhost:3301");

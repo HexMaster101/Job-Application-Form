@@ -1,3 +1,5 @@
+//Posting Data
+
 const submitBtn = document.getElementById("submitBtn");
 
 const firstNameInput = document.getElementById("firstName");
@@ -23,8 +25,6 @@ async function addToDatabase(firstName, lastName, email, jobType) {
 }
 
 submitBtn.addEventListener("click", (event) => {
-	event.preventDefault();
-
 	let isValid = 1;
 
 	if (firstNameInput.value === "") {
