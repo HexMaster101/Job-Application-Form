@@ -1,4 +1,4 @@
-//Posting Data
+// POSTING DATA
 
 const submitBtn = document.getElementById("submitBtn");
 

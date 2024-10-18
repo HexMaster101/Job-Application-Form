@@ -17,9 +17,9 @@ app.use(express.static(path.join(__dirname, "public")));
 const db = mysql.createConnection({
 	host: "localhost",
 	user: "root",
-	password: "root", // replace with your actual password
+	password: "root",
 	database: "job_application",
-	port: 3306, // Ensure this matches where MySQL is running
+	port: 3306,
 });
 
 db.connect((err) => {
@@ -32,7 +32,7 @@ app.post("/add-user", (req, res) => {
 
 	const sql =
 		"INSERT INTO users (first_name, last_name, email, job_type) VALUES (?, ?, ?, ?)";
-	db.query(sql, [firstName, lastName, email, jobType], (err, result) => {
+	db.query(sql, [firstName, lastName, email, jobType], (err, results) => {
 		if (err) {
 			console.error("Error inserting data: ", err);
 			res.status(500).send("Server error");
